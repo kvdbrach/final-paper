@@ -13,7 +13,7 @@ eds<-eds
 eds$praying<-ifelse(as.numeric(eds$BK_Q135)>5,NA,as.numeric(eds$BK_Q135))
 eds$praying<-ifelse(eds$praying>1,0,1)
 
-ess$praying<-ifelse(as.numeric(ess$pray)>4,0,1)
+ess$praying<-ifelse(as.numeric(ess$pray)>3,0,1)
 
 gss$praying<-ifelse(as.numeric(gss$pray)>4,0,1)
 
