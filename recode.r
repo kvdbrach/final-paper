@@ -17,4 +17,5 @@ ess$praying<-ifelse(as.numeric(ess$pray)>4,0,1)
 
 gss$praying<-ifelse(as.numeric(gss$pray)>4,0,1)
 
+###Subjective-religiosity
 
