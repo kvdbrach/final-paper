@@ -30,6 +30,9 @@ ess$affiliated<-ifelse(as.numeric(ess$rlgblg)==2,0,1)
 
 ###Migrants
 ess$migr<-ifelse(ess$brncntr=='Yes',ifelse((ess$facntr=='Yes' & ess$mocntr=='Yes'),0,2),ifelse((ess$facntr=='Yes' | ess$mocntr=='Yes'),0,1))
+gss$migr<-ifelse(gss$born=='YES',ifelse((gss$parborn=='BOTH IN U.S'),0,2),ifelse(!gss$parborn=='NEITHER IN U.S',0,1))
+
+
 
 ###Destination
 levels(ess$cntry)<-c(levels(ess$cntry),'United States','Canada')
