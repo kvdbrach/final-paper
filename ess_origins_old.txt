@@ -1,0 +1,212 @@
+Afghanistan
+Albania
+Algeria
+American Samoa
+Angola
+Antarctica
+Antigua and Barbuda
+Argentina
+Armenia
+Aruba
+Australia
+Austria
+Azerbaijan
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Benin
+Bolivia
+Bosnia and Herzegovina
+Botswana
+Brazil
+Brunei Darussalam
+Bulgaria
+Burkina Faso
+Burundi
+Cambodia
+Cameroon
+Canada
+Cape Verde
+Central African Republic
+Chad
+Chile
+China
+Christmas Island
+Colombia
+Comoros
+Congo
+Congo, The Democratic Republic of the
+Costa Rica
+Cote D'Ivoire
+Cote D'ivoire
+Croatia
+Cuba
+Cyprus
+Czech Republic
+Czechoslovakia
+DDR
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+Don't know
+Ecuador
+Egypt
+El Salvador
+Eritrea
+Estonia
+Ethiopia
+Faroe Islands
+Fiji
+Finland
+France
+French Guiana
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Gibraltar
+Greece
+Greenland
+Grenada
+Guadeloupe
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hong Kong
+Hungary
+Iceland
+India
+Indonesia
+Iran, Islamic Republic of
+Iraq
+Ireland
+Israel
+Italy
+Jamaica
+Japan
+Jersey
+Jordan
+Kazakhstan
+Kazakstan
+Kenya
+Korea, Democratic People's Republic of
+Korea, Republic of
+Kuwait
+Kyrgyzstan
+Lao People's Democratic Republic
+Latvia
+Lebanon
+Liberia
+Libyan Arab Jamahiriya
+Liechtenstein
+Lithuania
+Luxembourg
+Macao
+Macau
+Macedonia
+Madagascar
+Malaysia
+Maldives
+Mali
+Malta
+Martinique
+Mauritania
+Mauritius
+Mayotte
+Mexico
+Moldova
+Moldova, Republic Of
+Moldova, Republic of
+Monaco
+Mongolia
+Montenegro
+Montserrat
+Morocco
+Mozambique
+Myanmar
+Namibia
+Nepal
+Netherlands
+Netherlands Antilles
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norfolk Island
+Norway
+Oman
+Pakistan
+Palestinian Territory, Occupied
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Puerto Rico
+Qatar
+Refusal
+Reunion
+Romania
+Russia
+Russian Federation
+Rwanda
+Saint Barthélemy
+Saint Kitts and Nevis
+Saint Lucia
+San Marino
+Sao Tome and Principe
+Saudi Arabia
+Senegal
+Serbia
+Serbia and Montenegro
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+Spain
+Sri Lanka
+Sudan
+Suriname
+Swaziland
+Sweden
+Switzerland
+Syrian Arab Republic
+Taiwan, Province of China
+Tajikistan
+Tanzania, United Republic Of
+Tanzania, United Republic of
+Thailand
+Timor-Leste
+Togo
+Trinidad and Tobago
+Tunisia
+Turkey
+Turkmenistan
+USSR
+Uganda
+Ukraine
+United Arab Emirates
+United Kingdom
+United States
+Uruguay
+Uzbekistan
+Venezuela
+Viet Nam
+Yemen
+Yugoslavia
+Zambia
+Zimbabwe
+Åland Islands
