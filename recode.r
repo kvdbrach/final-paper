@@ -51,6 +51,6 @@ levels(gss$origin)<-scan('gss_origins.txt', what='', sep='\n')
 ess$birthrp<-ifelse(ess$migr==1,ifelse(ess$essround==1,as.character(ess$cntbrth),ifelse(ess$essround<4,as.character(ess$cntbrtha),as.character(ess$cntbrthb))),as.character(ess$cntry))
 ess$birthfa<-ifelse(ess$essround<4,as.character(ess$fbrncnt),as.character(ess$fbrncnta))
 ess$birthmo<-ifelse(ess$essround<4,as.character(ess$mbrncnt),as.character(ess$mbrncnta))
-ess$origin<-ifelse(ess$migr<2,as.character(ess$birthrp),ifelse(ess$facntr=='No',as.character(ess$birthfa),as.character(ess$birthmo)))
+ess$origin<-as.factor(ifelse(ess$migr<2,as.character(ess$birthrp),ifelse(ess$facntr=='No',as.character(ess$birthfa),as.character(ess$birthmo))))
 write(levels(ess$origin),file='ess_origins_old.txt')
 
