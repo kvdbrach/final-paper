@@ -1,139 +1,139 @@
-Afghanistan
-Albania
-Algeria
-American Samoa
-Angola
-Antarctica
-Antigua and Barbuda
-Argentina
-Armenia
-Aruba
-Australia
-Austria
-Azerbaijan
-Bahrain
-Bangladesh
-Barbados
-Belarus
-Belgium
-Benin
-Bolivia
-Bosnia and Herzegovina
-Botswana
-Brazil
-Brunei Darussalam
-Bulgaria
-Burkina Faso
-Burundi
-Cambodia
-Cameroon
-Canada
-Cape Verde
-Central African Republic
-Chad
-Chile
-China
-Christmas Island
-Colombia
-Comoros
-Congo
-Congo, The Democratic Republic of the
-Costa Rica
-Cote D'Ivoire
-Cote D'ivoire
-Croatia
-Cuba
-Cyprus
-Czech Republic
-Czechoslovakia
+AF
+AL
+DZ
+AS
+AO
+AQ
+AG
+AR
+AM
+AW
+AU
+AT
+AZ
+BH
+BD
+BB
+BY
+BE
+BJ
+BO
+BA
+BW
+BR
+BN
+BG
+BF
+BI
+KH
+CM
+CA
+CV
+CF
+TD
+CL
+CN
+CX
+CO
+KM
+CG
+CD
+CR
+CI
+CI
+HR
+CU
+CY
+CZ
+Czechoslowakia
 DDR
-Denmark
-Djibouti
-Dominica
-Dominican Republic
-Don't know
-Ecuador
-Egypt
-El Salvador
-Eritrea
-Estonia
-Ethiopia
-Faroe Islands
-Fiji
-Finland
-France
-French Guiana
-Gabon
-Gambia
-Georgia
-Germany
-Ghana
-Gibraltar
-Greece
-Greenland
-Grenada
-Guadeloupe
-Guatemala
-Guinea
-Guinea-Bissau
-Guyana
-Haiti
-Honduras
-Hong Kong
-Hungary
-Iceland
-India
-Indonesia
-Iran, Islamic Republic of
-Iraq
-Ireland
-Israel
-Italy
-Jamaica
-Japan
-Jersey
-Jordan
-Kazakhstan
-Kazakstan
-Kenya
-Korea, Democratic People's Republic of
-Korea, Republic of
-Kuwait
-Kyrgyzstan
-Lao People's Democratic Republic
-Latvia
-Lebanon
-Liberia
-Libyan Arab Jamahiriya
-Liechtenstein
-Lithuania
-Luxembourg
-Macao
-Macau
-Macedonia
-Madagascar
-Malaysia
-Maldives
-Mali
-Malta
-Martinique
-Mauritania
-Mauritius
-Mayotte
-Mexico
-Moldova
-Moldova, Republic Of
-Moldova, Republic of
-Monaco
-Mongolia
+DK
+DJ
+DM
+DO
+MISSING
+EC
+EG
+SV
+ER
+EE
+ET
+FO
+FJ
+FI
+FR
+FR
+GA
+GM
+GE
+DE
+GH
+GI
+GR
+GL
+GD
+GP
+GT
+GN
+GW
+GY
+HT
+HN
+HK
+HU
+IS
+IN
+ID
+IR
+IQ
+IE
+IL
+IT
+JM
+JP
+GB
+JO
+KZ
+KZ
+KE
+KP
+KR
+KW
+KG
+LA
+LV
+LB
+LR
+LY
+LI
+LT
+LU
+MO
+MO
+MK
+MG
+MY
+MV
+ML
+MT
+MQ
+MR
+MU
+YT
+MX
+MD
+MD
+MD
+MC
+MN
 Montenegro
-Montserrat
-Morocco
-Mozambique
-Myanmar
-Namibia
-Nepal
-Netherlands
+MS
+MA
+MZ
+MM
+NA
+NP
+NL
 Netherlands Antilles
 New Zealand
 Nicaragua
