@@ -1,0 +1,54 @@
+MISSING
+CA
+CA
+CA
+FR
+GB
+IE
+GB
+GB
+GB
+AT
+BE
+NL
+DE
+CH
+Other Western European
+DK
+FI
+NO
+SE
+Other Northern European
+HU
+PL
+RO
+RU
+UK
+Other Eastern European
+GR
+IT
+ES
+PT
+Other Southern European
+IL
+Other European
+African
+LB
+Other Arab
+West Asian
+Punjabi
+East Indian n.i.e.
+Other South Asian
+CN
+PH
+JP
+VN
+Other East and Southeast Asian
+JM
+Other Caribbean
+Latin, Central and/or South American
+US
+Other
+Hyphenated response with Canadian (excluding French-Canadian
+Hyphenated response without Canadian
+MISSING
