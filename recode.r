@@ -65,4 +65,31 @@ eds$age<-cut(eds$age,cuts,include.lowest=TRUE,right=FALSE)
 ess$age<-cut(ess$agea,cuts,include.lowest=TRUE,right=FALSE)
 gss$age<-cut(gss$age,cuts,include.lowest=TRUE,right=FALSE)
 
+
 ###Sex: dichotomous, male=reference category
+eds$sex<-as.numeric(eds$SEX)-1
+gss$sexbackup<-gss$sex
+gss$sex<-as.numeric(gss$sex)-1
+ess$sex<-as.numeric(ess$gndr)-1
+
+
+###Year:
+eds$year<-2002
+gss$year<-gss$year
+ess$year<-(ess$essround*2)+2000
+
+
+###Education:
+eds$education<-as.factor(ifelse(as.numeric(eds$HLOS)>7,NA,eds$HLOS)
+levels(eds$education)<-levels(eds$HLOS)
+
+gss$education<-gss$educ
+ess$education<-ess$eduyrs
+
+
+
+###To delete
+#R age>17?
+#Russia, Turkey and Israel
+#GSS waves<2000
+
