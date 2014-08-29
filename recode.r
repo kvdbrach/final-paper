@@ -57,5 +57,12 @@ levels(ess$origin)<-scan('ess_origins.txt',what='',sep='\n')
 
 
 ###Demographics
+###Age: Recode to EDS categorical variable
+gss$agebackup<-gss$age
+eds$age<-(as.numeric(substr(levels(eds$AGES),1,2))+1)[as.numeric(eds$AGES)]
+cuts<-c(0,18,25,30,35,45,55,65,Inf)
+eds$age<-cut(eds$age,cuts,include.lowest=TRUE,right=FALSE)
+ess$age<-cut(ess$agea,cuts,include.lowest=TRUE,right=FALSE)
+gss$age<-cut(gss$age,cuts,include.lowest=TRUE,right=FALSE)
 
-
+###Sex: dichotomous, male=reference category
