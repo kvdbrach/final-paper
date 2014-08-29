@@ -53,4 +53,9 @@ ess$birthfa<-ifelse(ess$essround<4,as.character(ess$fbrncnt),as.character(ess$fb
 ess$birthmo<-ifelse(ess$essround<4,as.character(ess$mbrncnt),as.character(ess$mbrncnta))
 ess$origin<-as.factor(ifelse(ess$migr<2,as.character(ess$birthrp),ifelse(ess$facntr=='No',as.character(ess$birthfa),as.character(ess$birthmo))))
 write(levels(ess$origin),file='ess_origins_old.txt')
+levels(ess$origin)<-scan('ess_origins.txt',what='',sep='\n')
+
+
+###Demographics
+
 

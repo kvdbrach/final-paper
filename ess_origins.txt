@@ -126,7 +126,7 @@ MD
 MD
 MC
 MN
-Montenegro
+CS
 MS
 MA
 MZ
@@ -134,79 +134,79 @@ MM
 NA
 NP
 NL
-Netherlands Antilles
-New Zealand
-Nicaragua
-Niger
-Nigeria
-Norfolk Island
-Norway
-Oman
-Pakistan
-Palestinian Territory, Occupied
-Panama
-Papua New Guinea
-Paraguay
-Peru
-Philippines
-Poland
-Portugal
-Puerto Rico
-Qatar
-Refusal
-Reunion
-Romania
-Russia
-Russian Federation
-Rwanda
+AN
+NZ
+NI
+NE
+NG
+NF
+NO
+OM
+PK
+PS
+PA
+PG
+PY
+PE
+PH
+PL
+PT
+PR
+QA
+MISSING
+RE
+RO
+RU
+RU
+RW
 Saint Barthélemy
-Saint Kitts and Nevis
-Saint Lucia
-San Marino
-Sao Tome and Principe
-Saudi Arabia
-Senegal
-Serbia
-Serbia and Montenegro
-Seychelles
-Sierra Leone
-Singapore
-Slovakia
-Slovenia
-Solomon Islands
-Somalia
-South Africa
-Spain
-Sri Lanka
-Sudan
-Suriname
-Swaziland
-Sweden
-Switzerland
-Syrian Arab Republic
-Taiwan, Province of China
-Tajikistan
-Tanzania, United Republic Of
-Tanzania, United Republic of
-Thailand
-Timor-Leste
-Togo
-Trinidad and Tobago
-Tunisia
-Turkey
-Turkmenistan
+KN
+LC
+SM
+ST
+SA
+SN
+CS
+CS
+SC
+SL
+SG
+SK
+SI
+SB
+SO
+ZA
+ES
+LK
+SD
+SR
+SZ
+SE
+CH
+SY
+TW
+TJ
+TZ
+TZ
+TH
+TL
+TG
+TT
+TN
+TR
+TM
 USSR
-Uganda
-Ukraine
-United Arab Emirates
-United Kingdom
-United States
-Uruguay
-Uzbekistan
-Venezuela
-Viet Nam
-Yemen
+UG
+UA
+AE
+GB
+US
+UY
+UZ
+VE
+VN
+YE
 Yugoslavia
-Zambia
-Zimbabwe
+ZM
+ZW
 Åland Islands
