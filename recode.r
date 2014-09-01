@@ -57,13 +57,11 @@ levels(ess$origin)<-scan('ess_origins.txt',what='',sep='\n')
 
 
 ###Demographics
-###Age: Recode to EDS categorical variable
-gss$agebackup<-gss$age
-eds$age<-(as.numeric(substr(levels(eds$AGES),1,2))+1)[as.numeric(eds$AGES)]
-cuts<-c(0,18,25,30,35,45,55,65,Inf)
-eds$age<-cut(eds$age,cuts,include.lowest=TRUE,right=FALSE)
-ess$age<-cut(ess$agea,cuts,include.lowest=TRUE,right=FALSE)
-gss$age<-cut(gss$age,cuts,include.lowest=TRUE,right=FALSE)
+###Age: Recode EDS to numerical variable
+eds$agenumeric<-as.numeric(eds$AGES)
+eds$age<-as.numeric(ifelse(eds$agenumeric==1,16,ifelse(eds$agenumeric==2,21,ifelse(eds$agenumeric==3,27,ifelse(eds$agenumeric==4,32,ifelse(eds$agenumeric==5,40,ifelse(eds$agenumeric==6,50,ifelse(eds$agenumeric==7,60,80))))))))
+ess$age<-ess$agea
+gss$age<-gss$age
 
 
 ###Sex: dichotomous, male=reference category
@@ -80,12 +78,22 @@ ess$year<-(ess$essround*2)+2000
 
 
 ###Education:
-eds$education<-as.factor(ifelse(as.numeric(eds$HLOS)>7,NA,eds$HLOS)
+eds$education<-as.factor(ifelse(as.numeric(eds$HLOS)>7,NA,eds$HLOS))
 levels(eds$education)<-levels(eds$HLOS)
-
+#PHD: 26 years
+#Bachelor: 16 years
+#CEGEP: 16 years
+#some university: 15 years
+#some college: 15 years
+#high school: 14 years
+#less than high school: 8 years
+eds$schooling<-as.numeric(eds$HLOS)
+eds$education<-ifelse(eds$schooling==1,26,ifelse(eds$schooling<4,16,ifelse(eds$schooling<6,15,ifelse(eds$schooling==6,14,8))))
 gss$education<-gss$educ
 ess$education<-ess$eduyrs
 
+
+###Employment
 
 
 ###To delete
