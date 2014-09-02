@@ -97,3 +97,16 @@ ess$education<-ess$eduyrs
 eds$employed<-ifelse(as.numeric(eds$MAINACTS)==1,1,ifelse(as.numeric(eds$MAINACTS)>4,NA,0))
 gss$employed<-ifelse(as.numeric(gss$wrkstat)<3,1,0)
 ess$employed<-ifelse(as.numeric(ess$mnactic)==1,1,0)
+
+
+###Calculate WVS and EVS variables
+###Select US and Canada from WVS and discard other countries
+wvs<-wvs[wvs$V2=='United States' | wvs$V2=='Canada',]
+
+###Only select natives to calculate variables
+
+
+
+#Read in MIPEX-data
+mipex<-read.table('mipex.csv',header=TRUE,sep=";")
+

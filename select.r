@@ -1,7 +1,8 @@
-###Remove non-European countries
+###Remove non-European countries + Ukraine (MIPEX missing)
 ess<-ess[ess$cntry!='Turkey',]
 ess<-ess[ess$cntry!='Israel',]
 ess<-ess[ess$cntry!='Russia',]
+ess<-ess[ess$cntry!='Ukraine',]
 
 ###Age: +18
 ess<-ess[ess$age>17,]
