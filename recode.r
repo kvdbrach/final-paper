@@ -111,6 +111,8 @@ evs<-evs[evs$v309=='yes' & evs$v311=='yes' & evs$v306=='yes',]
 ###Add countries-variable to enable merge
 wvs$countries<-wvs$V2
 evs$countries<-evs$country
+levels(evs$countries)[levels(evs$countries)=='Great Britain']<-'United Kingdom'
+levels(evs$countries)[levels(evs$countries)=='Slovak Republic']<-'Slovakia'
 
 
 ###Dislike immigrants as neighbors
@@ -119,8 +121,17 @@ evs$mneigh<-as.numeric(evs$v54)-1
 
 disneigh<-rbind(aggregate(mneigh~countries,wvs,mean),aggregate(mneigh~countries,evs,mean))
 
+###Prefer nationals when jobs are scarce
+wvs$njobs<-ifelse(as.numeric(wvs$V45)==1,1,0)
+evs$njobs<-ifelse(as.numeric(evs$v102)==1,1,0)
+
+disjobs<-rbind(aggregate(njobs~countries,wvs,mean),aggregate(njobs~countries,evs,mean))
+
 
 #Read in MIPEX-data
 #Obtained from mipex.eu
 mipex<-read.table('mipex.csv',header=TRUE,sep=";")
 
+
+###Merge all to destination-side dataset
+destination<-merge(merge(disneigh,disjobs),mipex)
