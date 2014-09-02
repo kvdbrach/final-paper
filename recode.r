@@ -97,14 +97,3 @@ ess$education<-ess$eduyrs
 eds$employed<-ifelse(as.numeric(eds$MAINACTS)==1,1,ifelse(as.numeric(eds$MAINACTS)>4,NA,0))
 gss$employed<-ifelse(as.numeric(gss$wrkstat)<3,1,0)
 ess$employed<-ifelse(as.numeric(ess$mnactic)==1,1,0)
-
-
-
-
-
-
-###To delete
-#R age>17?
-#Russia, Turkey and Israel
-#GSS waves<2000
-
