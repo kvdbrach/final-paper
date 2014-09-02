@@ -104,9 +104,23 @@ ess$employed<-ifelse(as.numeric(ess$mnactic)==1,1,0)
 wvs<-wvs[wvs$V2=='United States' | wvs$V2=='Canada',]
 
 ###Only select natives to calculate variables
+wvs<-wvs[wvs$V215=='Not an immigrant' & wvs$V216=='Not an immigrant',]
+wvs<-wvs[wvs$V237>17,]
+evs<-evs[evs$v309=='yes' & evs$v311=='yes' & evs$v306=='yes',]
 
+###Add countries-variable to enable merge
+wvs$countries<-wvs$V2
+evs$countries<-evs$country
+
+
+###Dislike immigrants as neighbors
+wvs$mneigh<-abs(as.numeric(wvs$V37)-2)
+evs$mneigh<-as.numeric(evs$v54)-1
+
+disneigh<-rbind(aggregate(mneigh~countries,wvs,mean),aggregate(mneigh~countries,evs,mean))
 
 
 #Read in MIPEX-data
+#Obtained from mipex.eu
 mipex<-read.table('mipex.csv',header=TRUE,sep=";")
 

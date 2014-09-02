@@ -3,6 +3,7 @@ Albania
 Algeria
 American Samoa
 Angola
+Antarctica
 Antigua and Barbuda
 Argentina
 Armenia
@@ -38,6 +39,7 @@ Comoros
 Congo
 Congo, The Democratic Republic of the
 Costa Rica
+Cote D'Ivoire
 Cote D'ivoire
 Croatia
 Cuba
@@ -46,6 +48,7 @@ Czech Republic
 Czechoslovakia
 DDR
 Denmark
+Djibouti
 Dominica
 Dominican Republic
 Don't know
@@ -56,6 +59,7 @@ Eritrea
 Estonia
 Ethiopia
 Faroe Islands
+Fiji
 Finland
 France
 French Guiana
@@ -90,6 +94,7 @@ Japan
 Jersey
 Jordan
 Kazakhstan
+Kazakstan
 Kenya
 Korea, Democratic People's Republic of
 Korea, Republic of
@@ -104,9 +109,11 @@ Liechtenstein
 Lithuania
 Luxembourg
 Macao
+Macau
 Macedonia
 Madagascar
 Malaysia
+Maldives
 Mali
 Malta
 Martinique
@@ -116,6 +123,7 @@ Mayotte
 Mexico
 Moldova
 Moldova, Republic Of
+Moldova, Republic of
 Monaco
 Mongolia
 Montenegro
@@ -148,6 +156,7 @@ Qatar
 Refusal
 Reunion
 Romania
+Russia
 Russian Federation
 Rwanda
 Saint Barthélemy
@@ -171,11 +180,13 @@ Spain
 Sri Lanka
 Sudan
 Suriname
+Swaziland
 Sweden
 Switzerland
 Syrian Arab Republic
 Taiwan, Province of China
 Tajikistan
+Tanzania, United Republic Of
 Tanzania, United Republic of
 Thailand
 Timor-Leste
