@@ -1,0 +1,42 @@
+descriptives<-function(variables,data){
+  i<-1
+  result<-list()
+  while(i<=length(variables)){
+    if(is.factor(data[,variables[i]])){
+      freq<-table(data[,variables[i]])
+      result[[variables[i]]]<-cbind(freq,round(prop.table(freq),digits=3))
+      colnames(result[[variables[i]]])<-c('Frequencies','Proportion')
+      #names(result[i])<-variables[i]
+    }else if(length(unique(data[,variables[i]]))==2){
+      freq<-table(data[,variables[i]])
+      result[[variables[i]]]<-cbind(freq,round(prop.table(freq),digits=3))
+      colnames(result[[variables[i]]])<-c('Frequencies','Proportion')
+      rownames(result[[variables[i]]])<-paste(variables[i],': ',c('Nee','Ja'),sep="")
+    }else{
+      freq<-data[,variables[i]]
+      result[[variables[i]]]<-round(c(min(freq),max(freq),mean(freq),sd(freq)),digits=3)
+      names(result[[variables[i]]])<-c('Min','Max','Mean','SD')
+      #rownames(result[[variables[i]]])<-variables[i]
+    }      
+    i<-i+1
+  }
+  return(result)
+}
+save.descriptives<-function(l,filename){
+  i<-1
+  result<-list()
+  while(i<=length(l)){
+    if(is.vector(l[[i]])){
+      result[[i]]<-data.frame('Col1'=paste(l[[i]][['Min']],'-',l[[i]][['Max']],sep=''),'Col2'=l[[i]][['Mean']],'Col3'=paste('(',l[[i]][['SD']],')',sep=''))
+      rownames(result[[i]])<-names(l[i])
+    }else{
+      result[[i]]<-data.frame('Col1'='0/1','Col2'=l[[i]][,'Frequencies'],'Col3'=paste('(',format(l[[i]][,'Proportion']*100,nsmall=1),'%)',sep='')) 
+    }
+    i<-i+1 
+  }  
+  result<-do.call(rbind,result)
+  colnames(result)<-c('Range','Mean/Frequency','SD/%')
+  library(xlsx)
+  write.xlsx(x=result,file=filename,sheetName='Descriptives')
+  return(result)
+}
