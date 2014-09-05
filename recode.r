@@ -127,6 +127,11 @@ evs$njobs<-ifelse(as.numeric(evs$v102)==1,1,0)
 
 disjobs<-rbind(aggregate(njobs~countries,wvs,mean),aggregate(njobs~countries,evs,mean))
 
+###Religiosity
+praying<-rbind(aggregate(praying~countries,gss[gss$migr==0,],mean),aggregate(praying~countries,eds[eds$migr==0,],mean),aggregate(praying~countries,ess[ess$migr==0,],mean))
+affiliated<-rbind(aggregate(affiliated~countries,gss[gss$migr==0,],mean),aggregate(affiliated~countries,eds[eds$migr==0,],mean),aggregate(affiliated~countries,ess[ess$migr==0,],mean))
+religion<-merge(praying,affiliated)
+
 
 #Read in MIPEX-data
 #Obtained from mipex.eu
@@ -134,4 +139,4 @@ mipex<-read.table('mipex.csv',header=TRUE,sep=";")
 
 
 ###Merge all to destination-side dataset
-destination<-merge(merge(disneigh,disjobs),mipex)
+destination<-merge(merge(merge(disneigh,disjobs),mipex),religion,all.x=TRUE,all.y=TRUE)
