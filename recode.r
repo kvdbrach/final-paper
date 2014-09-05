@@ -3,6 +3,12 @@ ess<-ess
 gss<-gss
 eds<-eds
 
+###Add dataset identifier to each dataset
+###1: ESS; 2: EDS; 3: GSS
+ess$dsid<-1
+eds$dsid<-2
+gss$dsid<-3
+
 ###Add constants to each dataset
 ess$cons<-1
 gss$cons<-1
@@ -13,7 +19,11 @@ eds$cons<-1
 #1: ESS; 2: EDS; 3: GSS
 ess$id<-ess$cseqno+1000000
 eds$id<-eds$PUMF_ID+2000000
-gss$idbackup<-gss$id
+if('idbackup' %in% colnames(gss)){
+	gss$id<-gss$idbackup
+}else{
+	gss$idbackup<-gss$id
+}
 gss$id<-(as.numeric(substr(gss$year,3,5))*10000)+gss$id+3000000
 
 ###Weights
