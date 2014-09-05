@@ -15,3 +15,6 @@ gss<-gss[gss$year>1999,]
 ess<-ess[ess$essround>1,]
 
 
+###Load in listwise_deletion function
+source('listwise_deletion.R',echo=TRUE)
+variables<-c('cons')

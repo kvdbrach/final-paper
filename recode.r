@@ -8,6 +8,20 @@ ess$cons<-1
 gss$cons<-1
 eds$cons<-1
 
+###IDvariable
+#First digit=surveycode
+#1: ESS; 2: EDS; 3: GSS
+ess$id<-ess$cseqno+1000000
+eds$id<-eds$PUMF_ID+2000000
+gss$idbackup<-gss$id
+gss$id<-(as.numeric(substr(gss$year,3,5))*10000)+gss$id+3000000
+
+###Weights
+ess$weight<-ess$dweight
+eds$weight<-eds$WGT_PUMF
+gss$weight<-gss$wtssall
+
+
 ###Praying 
 ###Convert to dichotomous variables
 ###Categories:0: Less than once a week 2: At least once a week
