@@ -173,3 +173,6 @@ source('select.r',echo=TRUE)
 ###Merge with destination-side
 d.affiliated<-merge(d.affiliated,destination,all.x=TRUE)
 d.praying<-merge(d.praying,destination,all.x=TRUE)
+
+origin<-data.frame(origin=levels(d$origin))
+
