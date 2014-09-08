@@ -164,3 +164,10 @@ mipex<-read.table('mipex.csv',header=TRUE,sep=";")
 
 ###Merge all to destination-side dataset
 destination<-merge(merge(merge(disneigh,disjobs),mipex),religion,all.x=TRUE,all.y=TRUE)
+
+
+
+
+
+###Make selection based on select.r
+source('select.r',echo=TRUE)

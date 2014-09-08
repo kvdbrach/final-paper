@@ -1,0 +1,9 @@
+list.missings<-function(variables){
+	i<-1
+	l<-list()
+	while(i<=length(variables)){
+		l[[variables[i]]]<-list('ess'=sum(is.na(ess[,variables[i]])),'gss'=sum(is.na(gss[,variables[i]])),'eds'=sum(is.na(eds[,variables[i]])))
+		i<-i+1
+	}
+	return(l)
+}

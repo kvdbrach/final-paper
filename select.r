@@ -26,8 +26,9 @@ gss_s<-gss_s[gss_s$migr>0,]
 
 ###Load in listwise_deletion function
 source('listwise_deletion.R',echo=TRUE)
-variables<-c('id','dsid','weight','cons','praying','affiliated','migr','countries','age','sex','year','education','employed')
+variables<-c('id','dsid','weight','cons','migr','countries','age','sex','year','education','employed')
+variables.ext<-c(variables,'affiliated','praying')
 
-
-d<-rbind(ess_s[,variables],eds_s[,variables],gss_s[,variables])
-d2<-listwise_deletion(d,variables)
+d<-rbind(ess_s[,variables.ext],eds_s[,variables.ext],gss_s[,variables.ext])
+d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
+d.praying<-listwise_deletion(d,c(variables,'praying'))
