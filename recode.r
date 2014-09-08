@@ -164,10 +164,12 @@ mipex<-read.table('mipex.csv',header=TRUE,sep=";")
 
 ###Merge all to destination-side dataset
 destination<-merge(merge(merge(disneigh,disjobs),mipex),religion,all.x=TRUE,all.y=TRUE)
-
-
-
-
+###Rename contextual variables
+colnames(destination)[2:6]<-paste(colnames(destination)[2:6],'_dest',sep='')
 
 ###Make selection based on select.r
 source('select.r',echo=TRUE)
+
+###Merge with destination-side
+d.affiliated<-merge(d.affiliated,destination,all.x=TRUE)
+d.praying<-merge(d.praying,destination,all.x=TRUE)
