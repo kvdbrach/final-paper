@@ -1,9 +1,0 @@
-listwise_deletion<-function(dataset,vars){
-  newdata<-dataset
-  i<-1
-  while(i<=length(vars)){
-    newdata<-newdata[!is.na(newdata[,vars[i]]),]    
-    i<-i+1
-  }  
-  return(newdata)
-}

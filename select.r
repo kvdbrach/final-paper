@@ -24,6 +24,11 @@ ess_s<-ess_s[ess_s$migr>0,]
 eds_s<-eds_s[eds_s$migr>0,]
 gss_s<-gss_s[gss_s$migr>0,]
 
+###Set MISSING-category for origin as NA
+ess_s$origin[ess_s$origin=='MISSING']<-NA
+eds_s$origin[eds_s$origin=='MISSING']<-NA
+gss_s$origin[gss_s$origin=='MISSING']<-NA
+
 ###Load in listwise_deletion function
 source('listwise_deletion.R',echo=TRUE)
 variables<-c('id','dsid','weight','cons','migr','countries','origin','age','sex','year','education','employed')
