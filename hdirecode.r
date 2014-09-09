@@ -44,13 +44,29 @@ hdi[hdi$origin=='GI','hdi_2010']<-hdi[hdi$origin=='GB','hdi_2010']
 hdi[hdi$origin=='GL','hdi_2010']<-hdi[hdi$origin=='DK','hdi_2010']
 hdi[hdi$origin=='GP','hdi_2010']<-hdi[hdi$origin=='FR','hdi_2010']
 iso.codes<-c(countrycode_data[countrycode_data$region=='South America','iso2c'],countrycode_data[countrycode_data$region=='Central America','iso2c'])
-hdi[hdi$origin=='Latin, Central and/or South American','hdi_2010']<-mean(hdi[match(iso.codes,hdi$origin),'hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='Latin, Central and/or South American','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
 hdi[hdi$origin=='MC','hdi_2010']<-hdi[hdi$origin=='FR','hdi_2010']
 hdi[hdi$origin=='MO','hdi_2010']<-hdi[hdi$origin=='CN','hdi_2010']
 hdi[hdi$origin=='NF','hdi_2010']<-hdi[hdi$origin=='AU','hdi_2010']
 iso.codes<-c('BH','IQ','IL','JO','KW','LB','OM','PS','QA','SA','SY','AE','YE')
-hdi[hdi$origin=='Other Arab','hdi_2010']<-mean(hdi[match(iso.codes,hdi$origin),'hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='Other Arab','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
 iso.codes<-c('RS','ME','HR','SI','BA','MK')
-hdi[hdi$origin=='Yugoslavia','hdi_2010']<-mean(hdi[match(iso.codes,hdi$origin),'hdi_2010'],na.rm=TRUE)
-
-
+hdi[hdi$origin=='Yugoslavia','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+iso.codes<-c('JP','KP','KR','MO','MN','TW','BN','KH','ID','LA','MY','MM','SG','TH','VN','BD','BT','MV','NP','PK','LK')
+hdi[hdi$origin=='OTHER ASIAN','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+iso.codes<-c(countrycode_data[countrycode_data$region=='Caribbean','iso2c'])
+hdi[hdi$origin=='Other Caribbean','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+iso.codes<-c(countrycode_data[countrycode_data$region=='Northern Europe','iso2c'])
+iso.codes<-iso.codes[-match(c('GB'),iso.codes)]
+hdi[hdi$origin=='Other Northern European','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+iso.codes<-c(countrycode_data[countrycode_data$region=='Southern Europe','iso2c'])
+iso.codes<-iso.codes[-match(c('IT','PT'),iso.codes)]
+hdi[hdi$origin=='Other Southern European','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+iso.codes<-c(countrycode_data[countrycode_data$region=='Eastern Europe','iso2c'])
+iso.codes<-iso.codes[-match(c('PL'),iso.codes)]
+hdi[hdi$origin=='Other Eastern European','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+iso.codes<-c(countrycode_data[countrycode_data$region=='Western Europe','iso2c'])
+iso.codes<-iso.codes[-match(c('DE','NL'),iso.codes)]
+hdi[hdi$origin=='Other Western European','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='RE','hdi_2010']<-hdi[hdi$origin=='FR','hdi_2010']
+hdi[hdi$origin=='USSR','hdi_2010']<-hdi[hdi$origin=='RU','hdi_2010']

@@ -23,7 +23,7 @@ HU
 PL
 RO
 RU
-UK
+GB
 Other Eastern European
 GR
 IT
@@ -35,9 +35,9 @@ Other European
 African
 LB
 Other Arab
-West Asian
-Punjabi
-East Indian n.i.e.
+OTHER ASIAN
+OTHER ASIAN
+OTHER ASIAN
 OTHER ASIAN
 CN
 PH

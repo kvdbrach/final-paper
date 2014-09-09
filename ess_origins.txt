@@ -1,13 +1,13 @@
 AF
 AL
 DZ
-AS
+US
 AO
 AQ
 AG
 AR
 AM
-AW
+NL
 AU
 AT
 AZ
@@ -33,7 +33,7 @@ CF
 TD
 CL
 CN
-CX
+AU
 CO
 KM
 CG
@@ -58,7 +58,7 @@ SV
 ER
 EE
 ET
-FO
+NO
 FJ
 FI
 FR
@@ -68,11 +68,11 @@ GM
 GE
 DE
 GH
-GI
+GB
 GR
-GL
+DK
 GD
-GP
+FR
 GT
 GN
 GW
@@ -108,7 +108,7 @@ LY
 LI
 LT
 LU
-MO
+CN
 MO
 MK
 MG
@@ -119,14 +119,14 @@ MT
 MQ
 MR
 MU
-YT
+FR
 MX
 MD
 MD
 MD
-MC
+FR
 MN
-CS
+RS
 Other Caribbean
 MA
 MZ
@@ -134,12 +134,12 @@ MM
 NA
 NP
 NL
-AN
+NL
 NZ
 NI
 NE
 NG
-NF
+AU
 NO
 OM
 PK
@@ -151,10 +151,10 @@ PE
 PH
 PL
 PT
-PR
+US
 QA
 MISSING
-RE
+FR
 RO
 RU
 RU
@@ -162,7 +162,7 @@ RW
 Saint Barthélemy
 KN
 LC
-SM
+IT
 ST
 SA
 SN
@@ -195,7 +195,7 @@ TT
 TN
 TR
 TM
-USSR
+RU
 UG
 UA
 AE
@@ -209,4 +209,4 @@ YE
 Yugoslavia
 ZM
 ZW
-Åland Islands
+FI
