@@ -39,3 +39,14 @@ hdi[hdi$origin=='CS','hdi_2010']<-hdi[hdi$origin=='RS','hdi_2010']
 hdi[hdi$origin=='CX','hdi_2010']<-hdi[hdi$origin=='AU','hdi_2010']
 hdi[hdi$origin=='CZECHOSLOVAKIA','hdi_2010']<-mean(c(hdi[hdi$origin=='RS','hdi_2010'],hdi[hdi$origin=='ME','hdi_2010'],hdi[hdi$origin=='HR','hdi_2010'],hdi[hdi$origin=='SI','hdi_2010'],hdi[hdi$origin=='BA','hdi_2010'],hdi[hdi$origin=='MK','hdi_2010']))
 hdi[hdi$origin=='Czechoslowakia','hdi_2010']<-mean(c(hdi[hdi$origin=='RS','hdi_2010'],hdi[hdi$origin=='ME','hdi_2010'],hdi[hdi$origin=='HR','hdi_2010'],hdi[hdi$origin=='SI','hdi_2010'],hdi[hdi$origin=='BA','hdi_2010'],hdi[hdi$origin=='MK','hdi_2010']))
+hdi[hdi$origin=='DDR','hdi_2010']<-hdi[hdi$origin=='DE','hdi_2010']
+hdi[hdi$origin=='CX','hdi_2010']<-hdi[hdi$origin=='AU','hdi_2010']
+hdi[hdi$origin=='FO','hdi_2010']<-hdi[hdi$origin=='NO','hdi_2010']
+hdi[hdi$origin=='GI','hdi_2010']<-hdi[hdi$origin=='GB','hdi_2010']
+hdi[hdi$origin=='GL','hdi_2010']<-hdi[hdi$origin=='DK','hdi_2010']
+hdi[hdi$origin=='GP','hdi_2010']<-hdi[hdi$origin=='FR','hdi_2010']
+iso.codes<-c(countrycode_data[countrycode_data$region=='South America','iso2c'],countrycode_data[countrycode_data$region=='Central America','iso2c'])
+hdi[hdi$origin=='Latin, Central and/or South American','hdi_2010']<-mean(hdi[match(iso.codes,hdi$origin),'hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='MC','hdi_2010']<-hdi[hdi$origin=='FR','hdi_2010']
+hdi[hdi$origin=='MO','hdi_2010']<-hdi[hdi$origin=='CN','hdi_2010']
+hdi[hdi$origin=='NF','origin']<-hdi[hdi$origin=='AU','hdi_2010']
