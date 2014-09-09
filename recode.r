@@ -176,3 +176,7 @@ d.praying<-merge(d.praying,destination,all.x=TRUE)
 
 origin<-data.frame(origin=levels(d$origin))
 
+###Merge with hdi
+source('hdirecode.r')
+d.affiliated<-merge(d.affiliated,hdi,all.x=TRUE)
+d.praying<-merge(d.praying,hdi,all.x=TRUE)
