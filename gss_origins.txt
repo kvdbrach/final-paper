@@ -1,9 +1,9 @@
-AFRICA
+African
 AT
 CA
 CA
 CN
-CZECHOSLOVAKIA
+Czechoslowakia
 DK
 GB
 FI
@@ -26,17 +26,17 @@ ES
 SE
 CH
 Other Caribbean
-OTHER
+Other
 AMERICAN INDIAN
 IN
 PT
 LT
-YUGOSLAVIA
+Yugoslavia
 RO
 BE
-ARABIC
+Other Arab
 OTHER SPANISH
 Other Caribbean
 OTHER ASIAN
-OTHER EUROPEAN
+Other European
 AMERICAN ONLY
