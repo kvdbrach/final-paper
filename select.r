@@ -30,7 +30,7 @@ eds_s$origin[eds_s$origin=='MISSING']<-NA
 gss_s$origin[gss_s$origin=='MISSING']<-NA
 
 ###Load in listwise_deletion function
-source('listwise_deletion.R',echo=TRUE)
+source('listwise_deletion.r',echo=TRUE)
 variables<-c('id','dsid','weight','cons','migr','countries','origin','age','sex','year','education','employed')
 variables.ext<-c(variables,'affiliated','praying')
 
