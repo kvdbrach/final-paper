@@ -30,4 +30,12 @@ hdi2<-hdi
 hdi2$continents<-countrycode(hdi$origin,'iso2c','continent',warn=TRUE)
 hdi2$regions<-countrycode(hdi$origin,'iso2c','region',warn=TRUE)
 
-hdi[hdi$origin=='Africa','hdi_2010']<-mean(hdi2[hdi2$continents=='African','hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='African','hdi_2010']<-mean(hdi2[hdi2$continents=='Africa','hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='AFRICA','hdi_2010']<-mean(hdi2[hdi2$continents=='Africa','hdi_2010'],na.rm=TRUE)
+hdi[hdi$origin=='AN','hdi_2010']<-hdi[hdi$origin=='NL','hdi_2010']
+hdi[hdi$origin=='AS','hdi_2010']<-hdi[hdi$origin=='US','hdi_2010']
+hdi[hdi$origin=='AW','hdi_2010']<-hdi[hdi$origin=='NL','hdi_2010']
+hdi[hdi$origin=='CS','hdi_2010']<-hdi[hdi$origin=='RS','hdi_2010']
+hdi[hdi$origin=='CX','hdi_2010']<-hdi[hdi$origin=='AU','hdi_2010']
+hdi[hdi$origin=='CZECHOSLOVAKIA','hdi_2010']<-mean(c(hdi[hdi$origin=='RS','hdi_2010'],hdi[hdi$origin=='ME','hdi_2010'],hdi[hdi$origin=='HR','hdi_2010'],hdi[hdi$origin=='SI','hdi_2010'],hdi[hdi$origin=='BA','hdi_2010'],hdi[hdi$origin=='MK','hdi_2010']))
+hdi[hdi$origin=='Czechoslowakia','hdi_2010']<-mean(c(hdi[hdi$origin=='RS','hdi_2010'],hdi[hdi$origin=='ME','hdi_2010'],hdi[hdi$origin=='HR','hdi_2010'],hdi[hdi$origin=='SI','hdi_2010'],hdi[hdi$origin=='BA','hdi_2010'],hdi[hdi$origin=='MK','hdi_2010']))
