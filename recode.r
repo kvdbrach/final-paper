@@ -180,3 +180,8 @@ origin<-data.frame(origin=levels(d$origin))
 source('hdirecode.r')
 d.affiliated<-merge(d.affiliated,hdi,all.x=TRUE)
 d.praying<-merge(d.praying,hdi,all.x=TRUE)
+
+###Merge with emigration flows
+source('migrationrecode.r')
+d.affiliated<-merge(d.affiliated,m.data,all.x=TRUE)
+d.praying<-merge(d.praying,m.data,all.x=TRUE)

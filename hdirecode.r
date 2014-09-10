@@ -1,9 +1,6 @@
 hdi<-read.csv('hdi.csv',sep=';')
 colnames(hdi)[2:14]<-gsub('X','hdi_',colnames(hdi)[2:14])
 
-###Using countrycode library
-library('countrycode')
-
 ###Add origin-variable to merge and fill with country-codes
 hdi$origin<-countrycode(hdi$Country,'country.name','iso2c',warn=TRUE)
 hdi[hdi$Country=='South Sudan','origin']<-'SS'
@@ -27,7 +24,8 @@ hdi<-merge(hdi,missing_origins,all.x=TRUE,all.y=TRUE)
 hdi$hdi_2010<-ifelse(hdi$hdi_2010>=1,NA,hdi$hdi_2010)
 
 ###Recode countries and regions
-hdi[hdi$origin=='African','hdi_2010']<-mean(hdi2[hdi2$continents=='Africa','hdi_2010'],na.rm=TRUE)
+iso.codes<-c(countrycode_data[countrycode_data$continent=='Africa','iso2c'])
+hdi[hdi$origin=='African','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
 hdi[hdi$origin=='Czechoslowakia','hdi_2010']<-mean(c(hdi[hdi$origin=='CZ','hdi_2010'],hdi[hdi$origin=='SK','hdi_2010']))
 iso.codes<-c(countrycode_data[countrycode_data$region=='South America','iso2c'],countrycode_data[countrycode_data$region=='Central America','iso2c'])
 hdi[hdi$origin=='Latin, Central and/or South American','hdi_2010']<-mean(hdi[match(iso.codes[!is.na(iso.codes)],hdi$origin),'hdi_2010'],na.rm=TRUE)
