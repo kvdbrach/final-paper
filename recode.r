@@ -196,3 +196,4 @@ d.praying$migr<-d.praying$migr-1
 ###Save initial and final datasets
 save(ess,eds,gss,d,d.affiliated,d.praying, file='fulldata.RData')
 
+#
