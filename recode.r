@@ -27,8 +27,9 @@ if('idbackup' %in% colnames(gss)){
 gss$id<-(as.numeric(substr(gss$year,3,5))*10000)+gss$id+3000000
 
 ###Weights
+#EDS-weight is based on total adult population. Divide weight by PopSize/SampleSize.
 ess$weight<-ess$dweight
-eds$weight<-eds$WGT_PUMF
+eds$weight<-eds$WGT_PUMF/(sum(eds$WGT_PUMF)/nrow(eds))
 gss$weight<-gss$wtssall
 
 
@@ -186,3 +187,8 @@ d.praying<-merge(d.praying,hdi,all.x=TRUE)
 source('migrationrecode.r')
 d.affiliated<-merge(d.affiliated,m.data,all.x=TRUE)
 d.praying<-merge(d.praying,m.data,all.x=TRUE)
+
+
+###Save initial and final datasets
+save(ess,eds,gss,d,d.affiliated,d.praying, file='fulldata.RData')
+
