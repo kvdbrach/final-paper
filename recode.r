@@ -188,6 +188,10 @@ source('migrationrecode.r')
 d.affiliated<-merge(d.affiliated,m.data,all.x=TRUE)
 d.praying<-merge(d.praying,m.data,all.x=TRUE)
 
+###Convert migr-variable to 0-1 to use as dummy
+d$migr<-d$migr-1
+d.affiliated$migr<-d.affiliated$migr-1
+d.praying$migr<-d.praying$migr-1
 
 ###Save initial and final datasets
 save(ess,eds,gss,d,d.affiliated,d.praying, file='fulldata.RData')
