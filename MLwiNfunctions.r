@@ -1,0 +1,46 @@
+MLwiN.calcResults<-function(models){
+  ifelse(is.list(models),m<-models,m<-list(models))
+  l<-list()
+  i<-1
+  while(i<=length(m)){
+    if(.hasSlot(model,'estMCMC')){
+      coefs<-c(m[[i]]@FP,m[[i]]@RP,m[[i]]@BDIC[['DIC']])
+    }else{
+      coefs<-c(m[[i]]@FP,m[[i]]@RP,m[[i]]@LIKE)
+    }
+    stds<-c(sqrt(diag(m[[i]]@FP.cov)),sqrt(diag(m[[i]]@RP.cov)),1.234)
+    ps<-2*pnorm(-abs(coefs/stds))
+    l[[i]]<-cbind(coefs,stds,ps)
+    colnames(l[[i]])<-c(paste('coef',i,sep=""),paste('std',i,sep=""),paste('p',i,sep=""))
+    i<-i+1
+  }
+  results<-do.call(cbind,l)
+  params<-length(row.names(results))
+  row.names(results)<-gsub('FP_','',row.names(results))
+  if(.hasSlot(model,'estMCMC')){
+    row.names(results)[params]<-'DIC'
+  }else{
+    row.names(results)[params]<-'LIKELIHOOD'
+  }
+  return(results)
+}
+Save.MLwiNResults<-function(data,filename){
+  n.models<-ncol(data)/3
+  i<-1
+  l<-list()
+  while(i<=n.models){
+    coefs<-data[,paste('coef',i,sep="")]
+    stds<-data[,paste('std',i,sep="")]
+    ps<-data[,paste('p',i,sep="")]
+    stars<-cut(ps,breaks=c(-Inf,0.001,0.01,0.05,0.1,Inf),labels=c('***','**','*','+',''))
+    l[[i]]<-data.frame(format(round(coefs, digits=3),nsmall=3),stars,paste('(',format(round(stds,digits=3),nsmall=3),')',sep=""))
+    colnames(l[[i]])<-c(paste('coef',i,sep=""),paste('sig',i,sep=""),paste('std',i,sep=""))
+    i<-i+1
+  }
+  results<-do.call(cbind,l)
+  results<-cbind(row.names(data),results)
+  library(xlsx)
+  write.xlsx(x=results,file=filename,sheetName='MLwiNResults',row.names=FALSE)
+  return(results)  
+}
+
