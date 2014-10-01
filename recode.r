@@ -193,6 +193,10 @@ d$migr<-d$migr-1
 d.affiliated$migr<-d.affiliated$migr-1
 d.praying$migr<-d.praying$migr-1
 
+###Sort dataset on destination countries
+d.affiliated<-d.affiliated[sort(d.affiliated),]
+d.praying<-d.praying[sort(d.praying),]
+
 ###Save initial and final datasets
 save(ess,eds,gss,d,d.affiliated,d.praying, file='fulldata.RData')
 
