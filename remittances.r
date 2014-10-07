@@ -1,7 +1,13 @@
 remittances<-read.csv('remittances.csv',header=TRUE,sep=';')
-library('countrycode')
 remittances<-remittances[,-ncol(remittances)]
+colnames(remittances)<-gsub('\\.',' ',colnames(remittances))
 remittances$s.iso<-countrycode(remittances$Sending,'country.name','iso2c',warn=TRUE)
+
+###Add the means for country groupings
+iso.codes<-c(countrycode_data[countrycode_data$continent=='Africa','regex'])
+col.indices<-sapply(iso.codes,function(x) grep(x,colnames(remittances), perl=TRUE, ignore.case=TRUE, value=FALSE))
+
+
 
 library('reshape')
 remittances.m<-melt(remittances[,-1],id=c('s.iso'))

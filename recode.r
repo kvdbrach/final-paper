@@ -51,10 +51,10 @@ ess$affiliated<-ifelse(as.numeric(ess$rlgblg)==2,0,1)
 
 
 ###Migrants
-ess$migr<-ifelse(ess$brncntr=='Yes',ifelse((ess$facntr=='Yes' & ess$mocntr=='Yes'),0,2),ifelse((ess$facntr=='Yes' | ess$mocntr=='Yes'),0,1))
-gss$migr<-ifelse(gss$born=='YES',ifelse((gss$parborn=='BOTH IN U.S'),0,2),ifelse(!gss$parborn=='NEITHER IN U.S',0,1))
+ess$migr<-factor(ifelse(ess$brncntr=='Yes',ifelse((ess$facntr=='Yes' & ess$mocntr=='Yes'),0,2),ifelse((ess$facntr=='Yes' | ess$mocntr=='Yes'),0,1)),labels=c('native','firstgen','secondgen'))
+gss$migr<-factor(ifelse(gss$born=='YES',ifelse((gss$parborn=='BOTH IN U.S'),0,2),ifelse(!gss$parborn=='NEITHER IN U.S',0,1)),labels=c('native','firstgen','secondgen'))
 eds$numgen<-as.numeric(eds$GENSTAT)
-eds$migr<-ifelse(eds$numgen==1,1,ifelse(eds$numgen==2,2,ifelse(eds$numgen==3,0,NA)))
+eds$migr<-factor(ifelse(eds$numgen==1,1,ifelse(eds$numgen==2,2,ifelse(eds$numgen==3,0,NA))),labels=c('native','firstgen','secondgen'))
 
 
 ###Destination
@@ -73,10 +73,10 @@ gss$origin<-gss$ethnic
 write(levels(gss$ethnic),file='gss_origins_old.txt')
 levels(gss$origin)<-scan('gss_origins.txt', what='', sep='\n')
 
-ess$birthrp<-ifelse(ess$migr==1,ifelse(ess$essround==1,as.character(ess$cntbrth),ifelse(ess$essround<4,as.character(ess$cntbrtha),as.character(ess$cntbrthb))),as.character(ess$cntry))
+ess$birthrp<-ifelse(ess$migr=='firstgen',ifelse(ess$essround==1,as.character(ess$cntbrth),ifelse(ess$essround<4,as.character(ess$cntbrtha),as.character(ess$cntbrthb))),as.character(ess$cntry))
 ess$birthfa<-ifelse(ess$essround<4,as.character(ess$fbrncnt),as.character(ess$fbrncnta))
 ess$birthmo<-ifelse(ess$essround<4,as.character(ess$mbrncnt),as.character(ess$mbrncnta))
-ess$origin<-as.factor(ifelse(ess$migr<2,as.character(ess$birthrp),ifelse(ess$facntr=='No',as.character(ess$birthfa),as.character(ess$birthmo))))
+ess$origin<-as.factor(ifelse(ess$migr!='secondgen',as.character(ess$birthrp),ifelse(ess$facntr=='No',as.character(ess$birthfa),as.character(ess$birthmo))))
 write(levels(ess$origin),file='ess_origins_old.txt')
 levels(ess$origin)<-scan('ess_origins.txt',what='',sep='\n')
 
@@ -153,49 +153,38 @@ evs$njobs<-ifelse(as.numeric(evs$v102)==1,1,0)
 disjobs<-rbind(aggregate(njobs~countries,wvs,mean),aggregate(njobs~countries,evs,mean))
 
 ###Religiosity
-praying<-rbind(aggregate(praying~countries,gss[gss$migr==0,],mean),aggregate(praying~countries,eds[eds$migr==0,],mean),aggregate(praying~countries,ess[ess$migr==0,],mean))
-affiliated<-rbind(aggregate(affiliated~countries,gss[gss$migr==0,],mean),aggregate(affiliated~countries,eds[eds$migr==0,],mean),aggregate(affiliated~countries,ess[ess$migr==0,],mean))
+praying<-rbind(aggregate(praying~countries,gss[gss$migr=='native',],mean),aggregate(praying~countries,eds[eds$migr=='native',],mean),aggregate(praying~countries,ess[ess$migr=='native',],mean))
+affiliated<-rbind(aggregate(affiliated~countries,gss[gss$migr=='native',],mean),aggregate(affiliated~countries,eds[eds$migr=='native',],mean),aggregate(affiliated~countries,ess[ess$migr=='native',],mean))
 religion<-merge(praying,affiliated)
 
 
-#Read in MIPEX-data
+#load mipex-data
 #Obtained from mipex.eu
-mipex<-read.table('mipex.csv',header=TRUE,sep=";")
-
-
-###Merge all to destination-side dataset
-destination<-merge(merge(merge(disneigh,disjobs),mipex),religion,all.x=TRUE,all.y=TRUE)
-###Rename contextual variables
-colnames(destination)[2:6]<-paste(colnames(destination)[2:6],'_dest',sep='')
+source('mipex.r',echo=TRUE)
 
 ###Make selection based on select.r
 source('select.r',echo=TRUE)
 
 ###Merge with destination-side
-d.affiliated<-merge(d.affiliated,destination,all.x=TRUE)
-d.praying<-merge(d.praying,destination,all.x=TRUE)
+d<-merge(d,destination,all.x=TRUE)
 
 origin<-data.frame(origin=levels(d$origin))
 
 ###Merge with hdi
 library('countrycode')
 source('hdirecode.r')
-d.affiliated<-merge(d.affiliated,hdi,all.x=TRUE)
-d.praying<-merge(d.praying,hdi,all.x=TRUE)
+d<-merge(d,hdi,all.x=TRUE)
 
-###Merge with emigration flows
-source('migrationrecode.r')
-d.affiliated<-merge(d.affiliated,m.data,all.x=TRUE)
-d.praying<-merge(d.praying,m.data,all.x=TRUE)
+###Merge with remittances
+#create iso-destination country variable
+d$iso.dest<-countrycode(d$countries,'country.name','iso2c',warn=TRUE)
+d<-d[order(d$countries),]
 
-###Convert migr-variable to 0-1 to use as dummy
-d$migr<-d$migr-1
-d.affiliated$migr<-d.affiliated$migr-1
-d.praying$migr<-d.praying$migr-1
 
-###Sort dataset on destination countries
-d.affiliated<-d.affiliated[order(d.affiliated$countries),]
-d.praying<-d.praying[order(d.praying$countries),]
+
+d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
+d.praying<-listwise_deletion(d,c(variables,'praying'))
+
 
 ###Save initial and final datasets
 save(ess,eds,gss,d,d.affiliated,d.praying, file='fulldata.RData')

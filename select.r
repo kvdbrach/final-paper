@@ -19,11 +19,6 @@ ess_s<-ess_s[ess_s$cntry!='Ukraine',]
 ###ESS: delete wave 1
 #ess_s<-ess_s[ess_s$essround>1,]
 
-###Select only migrants
-ess_s<-ess_s[ess_s$migr>0,]
-eds_s<-eds_s[eds_s$migr>0,]
-gss_s<-gss_s[gss_s$migr>0,]
-
 ###Set MISSING-category for origin as NA
 ess_s$origin[ess_s$origin=='MISSING']<-NA
 eds_s$origin[eds_s$origin=='MISSING']<-NA
@@ -35,5 +30,4 @@ variables<-c('id','dsid','weight','cons','migr','countries','origin','age','sex'
 variables.ext<-c(variables,'affiliated','praying')
 
 d<-rbind(ess_s[,variables.ext],eds_s[,variables.ext],gss_s[,variables.ext])
-d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
-d.praying<-listwise_deletion(d,c(variables,'praying'))
+
