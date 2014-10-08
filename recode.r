@@ -32,7 +32,6 @@ ess$weight<-ess$dweight
 eds$weight<-eds$WGT_PUMF/(sum(eds$WGT_PUMF)/nrow(eds))
 gss$weight<-gss$wtssall
 
-
 ###Praying 
 ###Convert to dichotomous variables
 ###Categories:0: Less than once a week 2: At least once a week
@@ -48,6 +47,17 @@ eds$RELSUM<-ifelse(as.numeric(eds$RELSUM)>12,NA,eds$RELSUM)
 eds$affiliated<-ifelse(eds$RELSUM==1,0,1)
 gss$affiliated<-ifelse(as.numeric(gss$relig)==4,0,1)
 ess$affiliated<-ifelse(as.numeric(ess$rlgblg)==2,0,1)
+
+###Denomination
+ess$denomination<-as.numeric(ess$rlgdnm)
+ess$denomination<-ifelse(ess$affiliated==0,9,ifelse(ess$denomination>6 | ess$denomination==4,7,ess$denomination))
+ess$denomination<-factor(ess$denomination,labels=c('romcat','prot','ortho','jew','islam','other','none'))
+gss$denomination<-as.numeric(gss$relig)
+gss$denomination<-ifelse(gss$denomination==10,14,ifelse(gss$denomination==9,15,ifelse(gss$denomination>5,5,gss$denomination)))
+gss$denomination<-factor(gss$denomination,labels=c('prot','romcat','jew','none','other','ortho','islam'))
+eds$denomination<-as.numeric(eds$RELSUM)
+eds$denomination<-ifelse(eds$denomination>7,5,eds$denomination)
+eds$denomination<-factor(eds$denomination,labels=c('none','romcat','prot','ortho','other','islam','jew'))
 
 
 ###Migrants
