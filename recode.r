@@ -32,6 +32,13 @@ ess$weight<-ess$dweight
 eds$weight<-eds$WGT_PUMF/(sum(eds$WGT_PUMF)/nrow(eds))
 gss$weight<-gss$wtssall
 
+###Affiliation
+eds$RELSUM<-ifelse(as.numeric(eds$RELSUM)>12,NA,eds$RELSUM)
+eds$affiliated<-ifelse(eds$RELSUM==1,0,1)
+gss$affiliated<-ifelse(as.numeric(gss$relig)==4,0,1)
+ess$affiliated<-ifelse(as.numeric(ess$rlgblg)==2,0,1)
+
+
 ###Praying 
 ###Convert to dichotomous variables
 ###Categories:0: Less than once a week 2: At least once a week
@@ -39,14 +46,11 @@ gss$weight<-gss$wtssall
 eds$praying<-ifelse(as.numeric(eds$BK_Q135)>5,NA,as.numeric(eds$BK_Q135))
 eds$praying<-ifelse(eds$praying>1,0,1)
 ess$praying<-ifelse(as.numeric(ess$pray)>3,0,1)
+ess[is.na(ess$affiliated) | ess$affiliated==0,'praying']<-NA
 gss$praying<-ifelse(as.numeric(gss$pray)>4,0,1)
+gss[is.na(gss$affiliated) | gss$affiliated==0,'praying']<-NA
 
 
-###Affiliation
-eds$RELSUM<-ifelse(as.numeric(eds$RELSUM)>12,NA,eds$RELSUM)
-eds$affiliated<-ifelse(eds$RELSUM==1,0,1)
-gss$affiliated<-ifelse(as.numeric(gss$relig)==4,0,1)
-ess$affiliated<-ifelse(as.numeric(ess$rlgblg)==2,0,1)
 
 ###Denomination
 ess$denomination<-as.numeric(ess$rlgdnm)
@@ -78,10 +82,12 @@ ess$countries<-ess$cntry
 eds$origin<-eds$EATC1
 write(levels(eds$EATC1),file='eds_origins_old.txt')
 levels(eds$origin)<-scan('eds_origins.txt', what='', sep='\n')
+eds[!is.na(eds$migr) & eds$migr=='native','origin']<-'CA'
 
 gss$origin<-gss$ethnic
 write(levels(gss$ethnic),file='gss_origins_old.txt')
 levels(gss$origin)<-scan('gss_origins.txt', what='', sep='\n')
+gss[!is.na(gss$migr) & gss$migr=='native','origin']<-'US'
 
 ess$birthrp<-ifelse(ess$migr=='firstgen',ifelse(ess$essround==1,as.character(ess$cntbrth),ifelse(ess$essround<4,as.character(ess$cntbrtha),as.character(ess$cntbrthb))),as.character(ess$cntry))
 ess$birthfa<-ifelse(ess$essround<4,as.character(ess$fbrncnt),as.character(ess$fbrncnta))
@@ -192,10 +198,10 @@ d<-d[order(d$countries),]
 d$community<-paste(d$iso.dest,d$origin,sep='')
 source('remittances.r',echo=TRUE)
 d<-merge(d,remittances.m,all.x=TRUE)
-variables<-c(variables,'remittances')
 
 d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
 d.praying<-listwise_deletion(d,c(variables,'praying'))
+d.praying<-d.praying[d.praying$affiliated==1,]
 
 
 ###Save initial and final datasets

@@ -10,14 +10,14 @@ ess_s<-ess_s[ess_s$cntry!='Russia',]
 ess_s<-ess_s[ess_s$cntry!='Ukraine',]
 
 ###Age: +18
-#ess_s<-ess_s[ess_s$age>17,]
-#eds_s<-eds_s[eds_s$age>17,]
+ess_s<-ess_s[ess_s$age>17,]
+eds_s<-eds_s[eds_s$age>17,]
 
 ###GSS: waves >=2000
-#gss_s<-gss_s[gss_s$year>1999,]
+gss_s<-gss_s[gss_s$year>1999,]
 
 ###ESS: delete wave 1
-#ess_s<-ess_s[ess_s$essround>1,]
+ess_s<-ess_s[ess_s$essround>1,]
 
 ###Set MISSING-category for origin as NA
 ess_s$origin[ess_s$origin=='MISSING']<-NA
@@ -29,5 +29,5 @@ source('listwise_deletion.r',echo=TRUE)
 variables<-c('id','dsid','weight','cons','migr','countries','origin','age','sex','year','education','employed','denomination')
 variables.ext<-c(variables,'affiliated','praying')
 
-d<-rbind(ess_s[,variables.ext],eds_s[,variables.ext],gss_s[,variables.ext])
+d<-rbind(ess_s[!is.na(ess_s$origin),variables.ext],eds_s[!is.na(eds_s$origin),variables.ext],gss_s[!is.na(gss_s$origin),variables.ext])
 
