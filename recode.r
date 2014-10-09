@@ -189,8 +189,10 @@ d<-merge(d,hdi,all.x=TRUE)
 #create iso-destination country variable
 d$iso.dest<-countrycode(d$countries,'country.name','iso2c',warn=TRUE)
 d<-d[order(d$countries),]
-
-
+d$community<-paste(d$iso.dest,d$origin,sep='')
+source('remittances.r',echo=TRUE)
+d<-merge(d,remittances.m,all.x=TRUE)
+variables<-c(variables,'remittances')
 
 d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
 d.praying<-listwise_deletion(d,c(variables,'praying'))
