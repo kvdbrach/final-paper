@@ -98,7 +98,7 @@ levels(ess$origin)<-scan('ess_origins.txt',what='',sep='\n')
 
 ###Questionnaire in non-official language?
 ess$qlang<-0
-gss$qlang<-ifelse(gss$spaneng=='SPANISH',1,0)
+gss$qlang<-ifelse(is.na(gss$spaneng),0,ifelse(gss$spaneng=='SPANISH',1,0))
 eds$qlang<-ifelse(eds$LANG_INS=='Other',1,0)
 
 ###Demographics
