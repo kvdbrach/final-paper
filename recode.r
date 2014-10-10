@@ -96,6 +96,10 @@ ess$origin<-as.factor(ifelse(ess$migr!='secondgen',as.character(ess$birthrp),ife
 write(levels(ess$origin),file='ess_origins_old.txt')
 levels(ess$origin)<-scan('ess_origins.txt',what='',sep='\n')
 
+###Questionnaire in non-official language?
+ess$qlang<-0
+gss$qlang<-ifelse(gss$spaneng=='SPANISH',1,0)
+eds$qlang<-ifelse(eds$LANG_INS=='Other',1,0)
 
 ###Demographics
 ###Age: Recode EDS to numerical variable
