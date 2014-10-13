@@ -203,6 +203,10 @@ d$community<-paste(d$iso.dest,d$origin,sep='')
 source('remittances.r',echo=TRUE)
 d<-merge(d,remittances.m,all.x=TRUE)
 
+###Convert year
+d$year<-d$year-2000
+
+
 d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
 d.praying<-listwise_deletion(d,c(variables,'praying'))
 d.praying<-d.praying[d.praying$affiliated==1,]
