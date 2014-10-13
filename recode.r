@@ -215,4 +215,8 @@ d.praying<-d.praying[d.praying$affiliated==1,]
 ###Save initial and final datasets
 save(ess,eds,gss,d,d.affiliated,d.praying, file='fulldata.RData')
 
-#
+#Generate 10% samples to test models
+s.affiliated<-d.affiliated[sample(nrow(d.affiliated),round(nrow(d.affiliated)/10)),]
+s.praying<-d.praying[sample(nrow(d.praying),round(nrow(d.praying)/10)),]
+save(s.affiliated,s.praying, file='sampledata.RData')
+
