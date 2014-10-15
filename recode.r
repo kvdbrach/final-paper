@@ -202,7 +202,10 @@ d<-d[order(d$countries),]
 d$community<-paste(d$iso.dest,d$origin,sep='')
 source('remittances.r',echo=TRUE)
 d<-merge(d,remittances.m,all.x=TRUE)
+
+###Standardize d$remittances, center the rest
 d$remittances<-(d$remittances-mean(d$remittances,na.rm=TRUE))/sd(d$remittances,na.rm=TRUE)
+
 
 ###Convert year
 d$year<-d$year-2000
