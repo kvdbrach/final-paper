@@ -205,7 +205,11 @@ d<-merge(d,remittances.m,all.x=TRUE)
 
 ###Standardize d$remittances, center the rest
 d$remittances<-(d$remittances-mean(d$remittances,na.rm=TRUE))/sd(d$remittances,na.rm=TRUE)
-
+d_centr<-as.data.frame(apply(d[,sapply(d,is.numeric)],2,scale,scale=FALSE))
+vars<-c('age','education','mneigh_dest','njobs_dest','mipex_dest','affiliated_dest','praying_dest','hdi_2010','remittances')
+d_centr<-d_centr[,vars]
+colnames(d_centr)<-paste(colnames(d_centr),'_centr',sep='')
+d<-cbind(d,d_centr)
 
 ###Convert year
 d$year<-d$year-2000
@@ -215,7 +219,7 @@ d$firstgen<-ifelse(d$migr=='firstgen',1,0)
 d$secondgen<-ifelse(d$migr=='secondgen',1,0)
 d$native<-ifelse(d$migr=='native',1,0)
 
-variables<-c(variables,'firstgen','secondgen','native')
+variables<-c(variables,'firstgen','secondgen','native',vars)
 
 
 d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
