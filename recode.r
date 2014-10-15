@@ -235,3 +235,7 @@ s.affiliated<-d.affiliated[sample(nrow(d.affiliated),round(nrow(d.affiliated)/10
 s.praying<-d.praying[sample(nrow(d.praying),round(nrow(d.praying)/10)),]
 save(s.affiliated,s.praying, file='sampledata.RData')
 
+#Generate samples of migrants
+m.affiliated<-d.affiliated[d.affiliated$migr!='native',]
+m.praying<-d.praying[d.praying$migr!='native',]
+save(m.affiliated,m.praying,file='migr_data.RData')
