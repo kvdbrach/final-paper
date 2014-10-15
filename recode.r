@@ -202,9 +202,17 @@ d<-d[order(d$countries),]
 d$community<-paste(d$iso.dest,d$origin,sep='')
 source('remittances.r',echo=TRUE)
 d<-merge(d,remittances.m,all.x=TRUE)
+d$remittances<-(d$remittances-mean(d$remittances,na.rm=TRUE))/sd(d$remittances,na.rm=TRUE)
 
 ###Convert year
 d$year<-d$year-2000
+
+###Convert migr to dummies
+d$firstgen<-ifelse(d$migr=='firstgen',1,0)
+d$secondgen<-ifelse(d$migr=='secondgen',1,0)
+d$native<-ifelse(d$migr=='native',1,0)
+
+variables<-c(variables,'firstgen','secondgen','native')
 
 
 d.affiliated<-listwise_deletion(d,c(variables,'affiliated'))
