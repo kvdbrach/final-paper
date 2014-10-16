@@ -165,12 +165,14 @@ wvs$mneigh<-abs(as.numeric(wvs$V37)-2)
 evs$mneigh<-as.numeric(evs$v54)-1
 
 disneigh<-rbind(aggregate(mneigh~countries,wvs,mean),aggregate(mneigh~countries,evs,mean))
+disneigh$mneigh<-1-disneigh$mneigh
 
 ###Prefer nationals when jobs are scarce
 wvs$njobs<-ifelse(as.numeric(wvs$V45)==1,1,0)
 evs$njobs<-ifelse(as.numeric(evs$v102)==1,1,0)
 
 disjobs<-rbind(aggregate(njobs~countries,wvs,mean),aggregate(njobs~countries,evs,mean))
+disjobs$njobs<-1-disjobs$njobs
 
 ###Religiosity
 praying<-rbind(aggregate(praying~countries,gss[gss$migr=='native',],mean),aggregate(praying~countries,eds[eds$migr=='native',],mean),aggregate(praying~countries,ess[ess$migr=='native',],mean))
