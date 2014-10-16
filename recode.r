@@ -176,7 +176,7 @@ disjobs<-rbind(aggregate(njobs~countries,wvs,mean),aggregate(njobs~countries,evs
 praying<-rbind(aggregate(praying~countries,gss[gss$migr=='native',],mean),aggregate(praying~countries,eds[eds$migr=='native',],mean),aggregate(praying~countries,ess[ess$migr=='native',],mean))
 affiliated<-rbind(aggregate(affiliated~countries,gss[gss$migr=='native',],mean),aggregate(affiliated~countries,eds[eds$migr=='native',],mean),aggregate(affiliated~countries,ess[ess$migr=='native',],mean))
 religion<-merge(praying,affiliated)
-
+religion$praying<-religion$praying*religion$affiliated
 
 #load mipex-data
 #Obtained from mipex.eu
